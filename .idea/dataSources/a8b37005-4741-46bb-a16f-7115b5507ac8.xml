@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="mysql@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.3">
+    <root id="1"/>
+    <schema id="2" parent="1" name="mysql">
+      <Current>1</Current>
+    </schema>
+    <schema id="3" parent="1" name="horse_rides">
+      <Visible>1</Visible>
+    </schema>
+    <schema id="4" parent="1" name="information_schema"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="sys"/>
+    <table id="7" parent="3" name="administrators"/>
+    <table id="8" parent="3" name="bet_states"/>
+    <table id="9" parent="3" name="bets"/>
+    <table id="10" parent="3" name="bookmakers"/>
+    <table id="11" parent="3" name="clients"/>
+    <table id="12" parent="3" name="coefficients"/>
+    <table id="13" parent="3" name="horses"/>
+    <table id="14" parent="3" name="results"/>
+    <column id="15" parent="7" name="administrator_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="16" parent="7" name="administrator_nick">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="17" parent="7" name="administrator_pass">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="18" parent="7" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>administrator_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="19" parent="8" name="state_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="20" parent="8" name="state">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="21" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>state_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="22" parent="9" name="bet_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="23" parent="9" name="date">
+      <Position>2</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="24" parent="9" name="user_name">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;клиент&apos;</DefaultExpression>
+    </column>
+    <column id="25" parent="9" name="horse_id">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="9" name="amount">
+      <Position>5</Position>
+      <DataType>double|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="27" parent="9" name="bet_state_id">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="28" parent="9" name="ClientHorseFK_idx">
+      <ColNames>horse_id</ColNames>
+    </index>
+    <key id="29" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>bet_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="30" parent="9" name="ClientHorseFK">
+      <ColNames>horse_id</ColNames>
+      <RefSchemaName>horse_rides</RefSchemaName>
+      <RefTableName>horses</RefTableName>
+      <RefColNames>horse_id</RefColNames>
+    </foreign-key>
+    <column id="31" parent="10" name="bookmaker_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="32" parent="10" name="bookmaker_nick">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="10" name="bookmaker_pass">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="34" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>bookmaker_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="35" parent="11" name="client_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="36" parent="11" name="client_nick">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="11" name="client_pass">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="38" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>client_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="39" parent="12" name="coefficient_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="40" parent="12" name="date">
+      <Position>2</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="41" parent="12" name="horse_id">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="12" name="coefficient">
+      <Position>4</Position>
+      <DataType>double|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="43" parent="12" name="CoeffHorseFK_idx">
+      <ColNames>horse_id</ColNames>
+    </index>
+    <key id="44" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>coefficient_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="45" parent="12" name="CoeffHorseFK">
+      <ColNames>horse_id</ColNames>
+      <RefSchemaName>horse_rides</RefSchemaName>
+      <RefTableName>horses</RefTableName>
+      <RefColNames>horse_id</RefColNames>
+    </foreign-key>
+    <column id="46" parent="13" name="horse_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="47" parent="13" name="horse_name">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <key id="48" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>horse_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="49" parent="14" name="result_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="50" parent="14" name="date">
+      <Position>2</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="51" parent="14" name="horse_winner_id">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="52" parent="14" name="ResultHorseFK_idx">
+      <ColNames>horse_winner_id</ColNames>
+    </index>
+    <key id="53" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>result_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="54" parent="14" name="ResultHorseFK">
+      <ColNames>horse_winner_id</ColNames>
+      <RefSchemaName>horse_rides</RefSchemaName>
+      <RefTableName>horses</RefTableName>
+      <RefColNames>horse_id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
