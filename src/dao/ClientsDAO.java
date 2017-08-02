@@ -7,7 +7,7 @@ import entities.users.Client;
 import java.sql.*;
 
 public class ClientsDAO {
-    private static Logger logger = LogManager.getRootLogger();
+    private static Logger logger = LogManager.getLogger(ClientsDAO.class);
 
     public static boolean create(String nick, String pass){
         Connection connection = DBConnector1.getConnection();

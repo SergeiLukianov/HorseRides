@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BetStatesDAO {
-    private static Logger logger = LogManager.getRootLogger();
+    private static Logger logger = LogManager.getLogger(BetStatesDAO.class);
 
     public static List<BetState> getAll() {
         List<BetState> states = new ArrayList<>();

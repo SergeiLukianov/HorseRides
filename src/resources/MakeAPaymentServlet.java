@@ -55,8 +55,6 @@ public class MakeAPaymentServlet extends HttpServlet {
                     " " + request.getParameter("checkSum"));
             if (bet.getCheckSum() == Integer.parseInt(request.getParameter("checkSum"))){
                 BetsDAO.update(betId, 4);
-//                request.setAttribute("coefficient", bet.getCoefficient());
-//                request.setAttribute("amount", bet.getAmount());
                 double amount = bet.getAmount();
                 double coeff = bet.getCoefficient();
 

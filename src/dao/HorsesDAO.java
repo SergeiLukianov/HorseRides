@@ -8,7 +8,7 @@ import java.sql.*;
 import java.util.*;
 
 public class HorsesDAO {
-    private static Logger logger = LogManager.getRootLogger();
+    private static Logger logger = LogManager.getLogger(HorsesDAO.class);
 
     public static List<Horse> getAll() {
         List<Horse> horses = new ArrayList<>();

@@ -7,7 +7,7 @@ import entities.users.Bookmaker;
 import java.sql.*;
 
 public class BookmakersDAO {
-    private static Logger logger = LogManager.getRootLogger();
+    private static Logger logger = LogManager.getLogger(BookmakersDAO.class);
 
     public static boolean create(String nick, String pass){
         Connection connection = DBConnector1.getConnection();
