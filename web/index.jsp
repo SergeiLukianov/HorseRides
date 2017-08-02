@@ -1,11 +1,18 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
     <title>Вход в систему</title>
 </head>
 <body>
-<table>
+<p>
+<a href="/registration">Регистрация</a>
+</p>
+<p>
+    <a href="/logout">Выйти из системы</a>
+</p>
+<table align="center">
     <form action="/authorization" method="post">
+        <div style="height:20%;"/>
         <tr>
             <td>Имя пользователя:</td>
         </tr>
@@ -32,12 +39,5 @@
         </tr>
     </form>
 </table>
-
-<p>
-    <a href="/registration">Регистрация</a>
-</p>
-<p>
-    <a href="/logout">Выйти из системы</a>
-</p>
 </body>
 </html>
