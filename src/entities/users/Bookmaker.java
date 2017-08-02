@@ -1,4 +1,4 @@
-package users;
+package entities.users;
 
 import dao.CoefficientsDAO;
 import entities.Coefficient;

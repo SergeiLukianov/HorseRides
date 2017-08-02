@@ -1,4 +1,4 @@
-package users;
+package entities.users;
 
 import entities.Bet;
 import dao.BetsDAO;

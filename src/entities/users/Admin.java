@@ -1,4 +1,4 @@
-package users;
+package entities.users;
 
 import dao.ResultsDAO;
 import entities.Result;
