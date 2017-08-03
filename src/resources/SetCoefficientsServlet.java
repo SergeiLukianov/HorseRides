@@ -23,11 +23,19 @@ public class SetCoefficientsServlet extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");
 
-            List<Horse> horses = HorsesDAO.getAll();
-            request.setAttribute("horses", horses);
+        if (request.getSession().getAttribute("authorized") == null || request.getSession().getAttribute("authorized").equals("false")) {
+            response.getWriter().println("<h2>Для начала авторизуйтесь!</h2>");
+            request.getRequestDispatcher("index.jsp").include(request, response);
+            return;
+        } else {
+            response.getWriter().println("<h2>Пользуйтесь кнопками и ссылками в пределах страницы</h2>");
+        }
 
-            request.getRequestDispatcher("WEB-INF/mainActions/setCoefficients.jsp").forward(request, response);
-            logger.info("Букмекер " + request.getSession().getAttribute("userName") + " нажал на кнопку 'Установить коэффициенты'");
+        List<Horse> horses = HorsesDAO.getAll();
+        request.setAttribute("horses", horses);
+
+        request.getRequestDispatcher("WEB-INF/mainActions/setCoefficients.jsp").forward(request, response);
+        logger.info("Букмекер " + request.getSession().getAttribute("userName") + " нажал на кнопку 'Установить коэффициенты'");
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -37,13 +45,14 @@ public class SetCoefficientsServlet extends HttpServlet {
         List<Horse> horses = HorsesDAO.getAll();
 
         String date = request.getParameter("date");
-        if( CoefficientsDAO.getAll(date).isEmpty() ){
+        if (CoefficientsDAO.getAll(date).isEmpty()) {
             List<Coefficient> coeff = new ArrayList<>();
             boolean succ = true;
             try {
-                horses:for (Horse h : horses) {
-                    double c = Double.parseDouble( request.getParameter("coefficient" + h.getId()) );
-                    if(Double.compare(c, 1.5d) < 0){
+                horses:
+                for (Horse h : horses) {
+                    double c = Double.parseDouble(request.getParameter("coefficient" + h.getId()));
+                    if (Double.compare(c, 1.5d) < 0) {
                         succ = false;
                         request.getRequestDispatcher("WEB-INF/actionResults/setCoefficientFail.jsp").forward(request, response);
                         break horses;
@@ -64,7 +73,7 @@ public class SetCoefficientsServlet extends HttpServlet {
                     logger.info("Букмекер " + request.getSession().getAttribute("userName") +
                             " установил коэффициенты :" + coeff);
                 }
-            } catch (NumberFormatException ex){ //коэффициент введен неправильно
+            } catch (NumberFormatException ex) { //коэффициент введен неправильно
                 logger.error("Букмекер " + request.getSession().getAttribute("userName") +
                         " пытался установить коэффициенты в неверном формате:");
                 request.getRequestDispatcher("WEB-INF/actionResults/wrongNumberFormat.jsp").forward(request, response);

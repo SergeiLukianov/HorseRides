@@ -13,7 +13,6 @@
 </head>
 <body>
 <table>
-
     <tr>
         <form action="/newbet" method="get">
             <td>

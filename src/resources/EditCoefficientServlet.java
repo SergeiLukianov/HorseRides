@@ -22,6 +22,14 @@ public class EditCoefficientServlet extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");
 
+        if (request.getSession().getAttribute("authorized") == null || request.getSession().getAttribute("authorized").equals("false")) {
+            response.getWriter().println("<h2>Для начала авторизуйтесь!</h2>");
+            request.getRequestDispatcher("index.jsp").include(request, response);
+            return;
+        } else {
+            response.getWriter().println("<h2>Пользуйтесь кнопками и ссылками в пределах страницы</h2>");
+        }
+
         logger.info("Букмекер " + request.getSession().getAttribute("userName")
                 + "нажал на кнопку 'именить коэффициенты'");
 

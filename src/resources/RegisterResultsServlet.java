@@ -67,6 +67,14 @@ public class RegisterResultsServlet extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");
 
+        if (request.getSession().getAttribute("authorized") == null || request.getSession().getAttribute("authorized").equals("false")) {
+            response.getWriter().println("<h2>Для начала авторизуйтесь!</h2>");
+            request.getRequestDispatcher("index.jsp").include(request, response);
+            return;
+        } else {
+            response.getWriter().println("<h2>Пользуйтесь кнопками и ссылками в пределах страницы</h2>");
+        }
+
         List<Horse> horses = HorsesDAO.getAll();
         request.setAttribute("horses", horses);
         request.getRequestDispatcher("WEB-INF/mainActions/registerResult.jsp").forward(request, response);

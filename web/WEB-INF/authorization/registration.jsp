@@ -6,19 +6,32 @@
 <body>
 <table>
     <form action="/registration" method="post">
-        <tr align="right">
+        <tr>
+            <td>Имя пользователя:</td>
+        </tr>
+        <tr>
             <td>
-                Имя пользователя:<input required name="userName" type="text">
+                <input required name="userName" type="text">
             </td>
         </tr>
-        <tr align="right">
+        <tr>
             <td>
-                Пароль: <input required name="password" type="password">
+                Пароль:
             </td>
         </tr>
-        <tr align="right">
+        <tr>
             <td>
-                Подтвердить пароль: <input required name="passwordConfirmation" type="password">
+                <input required name="password" type="password">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Подтвердить пароль:
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input required name="passwordConfirmation" type="password">
             </td>
         </tr>
         <tr align="right">

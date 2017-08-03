@@ -38,6 +38,14 @@ public class MakeAPaymentServlet extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");
 
+        if (request.getSession().getAttribute("authorized") == null || request.getSession().getAttribute("authorized").equals("false")) {
+            response.getWriter().println("<h2>Для начала авторизуйтесь!</h2>");
+            request.getRequestDispatcher("index.jsp").include(request, response);
+            return;
+        } else {
+            response.getWriter().println("<h2>Пользуйтесь кнопками и ссылками в пределах страницы</h2>");
+        }
+
         if (request.getParameter("button") == null) {
             List<Bet> bets = BetsDAO.getAllToBePayed();
             if (bets.isEmpty()){

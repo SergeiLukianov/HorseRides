@@ -5,6 +5,7 @@
     <title>Мои ставки</title>
 </head>
 <body>
+
 <table border="1">
     <tr>
         <td>Дата</td>

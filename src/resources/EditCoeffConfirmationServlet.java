@@ -18,6 +18,15 @@ public class EditCoeffConfirmationServlet extends HttpServlet {
     private static final Logger logger = LogManager.getLogger(EditCoeffConfirmationServlet.class);
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        if (request.getSession().getAttribute("authorized") == null || request.getSession().getAttribute("authorized").equals("false")) {
+            response.getWriter().println("<h2>Для начала авторизуйтесь!</h2>");
+            request.getRequestDispatcher("index.jsp").include(request, response);
+            return;
+        } else {
+            response.getWriter().println("<h2>Пользуйтесь кнопками и ссылками в пределах страницы</h2>");
+        }
+
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");
 
