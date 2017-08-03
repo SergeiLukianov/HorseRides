@@ -18,7 +18,7 @@ import java.util.Date;
 
 @WebServlet(name = "EntranceServlet", urlPatterns = "/authorization")
 public class AuthorizationServlet extends HttpServlet {
-    private Logger logger = LogManager.getLogger(AuthorizationServlet.class);
+    private static final Logger logger = LogManager.getLogger(AuthorizationServlet.class);
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

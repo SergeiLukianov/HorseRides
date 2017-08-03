@@ -14,7 +14,7 @@ import java.io.IOException;
 @WebServlet(name = "MainMenuServlet", urlPatterns = "/mainmenu")
 public class MainMenuServlet extends HttpServlet {
 
-    private Logger logger = LogManager.getLogger(MainMenuServlet.class);
+    private static final Logger logger = LogManager.getLogger(MainMenuServlet.class);
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");

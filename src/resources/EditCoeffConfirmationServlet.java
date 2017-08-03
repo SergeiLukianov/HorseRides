@@ -15,7 +15,7 @@ import java.io.IOException;
 @WebServlet(name = "EditCoeffConfirmationServlet", urlPatterns = "/editCoefficientConfirmation")
 public class EditCoeffConfirmationServlet extends HttpServlet {
 
-    private Logger logger = LogManager.getLogger(EditCoeffConfirmationServlet.class);
+    private static final Logger logger = LogManager.getLogger(EditCoeffConfirmationServlet.class);
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");

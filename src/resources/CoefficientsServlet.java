@@ -15,7 +15,7 @@ import java.util.List;
 
 @WebServlet(name = "CoefficientsServlet", urlPatterns = "/coefficients")
 public class CoefficientsServlet extends HttpServlet {
-    private Logger logger = LogManager.getLogger(CoefficientsServlet.class);
+    private static final Logger logger = LogManager.getLogger(CoefficientsServlet.class);
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");

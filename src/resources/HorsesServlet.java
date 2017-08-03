@@ -16,7 +16,7 @@ import java.util.List;
 @WebServlet(name = "HorsesServlet", urlPatterns = "/horses")
 public class HorsesServlet extends HttpServlet{
 
-    private Logger logger = LogManager.getLogger(HorsesServlet.class);
+    private static final Logger logger = LogManager.getLogger(HorsesServlet.class);
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");

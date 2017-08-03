@@ -19,7 +19,7 @@ import java.util.List;
 
 @WebServlet(name = "RegisterResultsServlet", urlPatterns = "/registerresult")
 public class RegisterResultsServlet extends HttpServlet {
-    private Logger logger = LogManager.getLogger(RegisterResultsServlet.class);
+    private static final Logger logger = LogManager.getLogger(RegisterResultsServlet.class);
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");

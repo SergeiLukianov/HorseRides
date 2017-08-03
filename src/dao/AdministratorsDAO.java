@@ -8,7 +8,7 @@ import java.sql.*;
 
 public class AdministratorsDAO {
 
-    private static Logger logger = LogManager.getLogger(AdministratorsDAO.class);
+    private static final Logger logger = LogManager.getLogger(AdministratorsDAO.class);
 
     public static boolean create(String nick, String pass){
         Connection connection = DBConnector1.getConnection();

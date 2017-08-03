@@ -16,7 +16,7 @@ import java.util.List;
 @WebServlet(name = "EditCoefficientServlet", urlPatterns = "/editCoefficient")
 public class EditCoefficientServlet extends HttpServlet {
 
-    private Logger logger = LogManager.getLogger(EditCoefficientServlet.class);
+    private static final Logger logger = LogManager.getLogger(EditCoefficientServlet.class);
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");

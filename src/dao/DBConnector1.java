@@ -12,7 +12,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public class DBConnector1 {
-    private static Logger logger = LogManager.getLogger(DBConnector1.class);
+    private static final Logger logger = LogManager.getLogger(DBConnector1.class);
 
     private static DataSource dataSource;
     static {

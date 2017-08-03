@@ -21,7 +21,7 @@ import java.util.Random;
 
 @WebServlet(name = "NewBetServlet", urlPatterns = "/newbet")
 public class NewBetServlet extends HttpServlet {
-    private Logger logger = LogManager.getLogger(NewBetServlet.class);
+    private static final Logger logger = LogManager.getLogger(NewBetServlet.class);
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
