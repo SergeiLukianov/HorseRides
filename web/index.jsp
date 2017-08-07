@@ -10,6 +10,7 @@
 <p>
     <a href="/logout">Выйти из системы</a>
 </p>
+
 <table align="center">
     <form action="/authorization" method="post">
         <div style="height:20%;"/>
